@@ -9,11 +9,11 @@ RUN apk add --no-cache openjdk8-jre-base tini
 ADD "${NOMI_URL}" /tmp/server.zip
 RUN echo "${NOMI_SHA} /tmp/server.zip" | sha256sum -c -
 
-RUN unzip /tmp/server.zip -d /opt/server \
- && rm -f /tmp/server.zip                \
- && chown -R 1000:1000 /opt/server
+RUN unzip /tmp/server.zip -d /opt/nomi \
+ && rm -f /tmp/server.zip              \
+ && chown -R 1000:1000 /opt/nomi
 
-WORKDIR /opt/server
+WORKDIR /opt/nomi
 
 ENV MEMORY="4G"
 
